@@ -1,0 +1,13 @@
+<div id="map" style='width: 400px; height: 300px;'></div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZ2F0b3JsZWFybnMiLCJhIjoiY2tyenRidDd3MGZ1czJvcndua2ZjbGtxYiJ9.UzQVf8_gvYw0WtE-l9Idsw';
+    var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11'
+    });
+</script>
+
+
+<div class="topnav">
+    <a class="navbar-logo" href="#">Trip Planner - JF</a><button onClick="window.location.href=window.location.href" id="refreshButton">Refresh Page</button><button type="button" onclick="window.open('', '_self', ''); window.close();" id="closewindowbutton">Close Window</button>
+  <div>

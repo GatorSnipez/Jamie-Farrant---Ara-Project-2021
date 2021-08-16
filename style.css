@@ -1,0 +1,99 @@
+#headerText{
+    font-size: larger;
+    position: relative;
+    left: 3rem;
+    color: white;
+}
+.custom-select{
+  position: absolute;
+  left: 3rem;
+  border: 4px solid darkorange;
+
+}
+.custom-select2{
+  position: absolute;
+  left: 3rem;
+  top: 17.5rem;
+  border: 4px solid darkorange;
+}
+.result{
+  position: relative;
+  top: 50vh;
+  border: 4px solid darkorange;
+  width: 120vh;
+  color: white;
+  left: 2vh;
+  padding-bottom: 3rem;
+}
+#refreshButton{
+  position: absolute;
+  right: 20vw;
+  background-color: darkorange;
+  font-weight: bold;
+  width: 25vh;
+  height: 7.5vh;
+}
+#closewindowbutton{
+  position: absolute;
+  right: 5vw;
+  background-color: darkorange;
+  width: auto;
+  font-weight: bold;
+  width: 25vh;
+  height: 7.5vh;
+}
+.fuelcalc{
+  position: absolute;
+  right: 5vh;
+  border: 3px solid darkorange;
+  padding: 2rem;
+  color: white;
+}
+#fuelcalcbutton{
+  color: black;
+  background-color: darkorange;
+  font-weight: bold;
+}
+#map{
+  position: relative;
+  left: 26.25vw;
+  top: -40vh;
+}
+#startlocation{
+  background-color: darkorange;
+  font-weight: bold;
+}
+#destination{
+  background-color: darkorange;
+  font-weight: bold;
+}
+
+.topnav {
+  background-color: darkslategray;
+  overflow: hidden;
+  width: auto;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  color: white;
+}
+body{
+  margin: 0;
+}
