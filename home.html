@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.css" rel="stylesheet">
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.js"></script>
+  <title>Trip Planner Assessment</title>
 </head>
 
 <body style="background-color: #111;">
@@ -14,48 +15,36 @@
         <br> Choose one below:
       </h1>     
     </div> 
-    <div class="custom-select">
-      <select id="startlocation">
-        <option value="00">Select Start Location:</option>
-        <option value="1">Leeston</option>
-        <option value="2">Southbridge</option>
-        <option value="3">Rolleston</option>
-        <option value="4">Lincoln</option>
-        <option value="5">Christchurch</option>
-      </select><br>
-      <button type="submit" onclick="addLocation_click()">Choose Location:</button>
-    </div>
-    <div class="custom-select2">
-      <select id="destination">
-        <option value="0">Select places to visit:</option>
-        <option value="Leeston">Leeston</option>
-        <option value="Southbridge">Southbridge</option>
-        <option value="Rolleston">Rolleston</option>
-        <option value="Lincoln">Lincoln</option>
-        <option value="Christchurch">Christchurch</option>
-      </select><br>
-      <button id="destinationbutton" type="submit" onclick="addDestination_click()">Choose Location:</button>
-    </div>
-  <div class="fuelcalc">
-    <h1>Fuel Calculator</h1>
-    <p>Distance Traveled:</p><input type="number"><p>KM</p>
-    <p>Fuel Economy of Vehicle:</p><input type="number"><p>L/100KM</p>
-    <button id="fuelcalcbutton" onclick="calculateFuelCost_click()">Calculate!</button>
-  </div>
-  <br>
-  <br>
-    <div class="result">
-      <h1>Your Itinerary:</h1>
-      <p id="startlocationresult">Starting place:</p>
+      <select id="start_position">
+          <option value="Leeston">Leeston</option>
+          <option value="Southbridge">Southbridge</option>
+          <option value="Irwell">Irwell</option>
+          <option value="Rolleston">Rolleston</option>
+          <option value="Dunsandel">Dunsandel</option>
+      </select>
+        <button id="add_start_button">Add Start Point</button>
+        <button id="remove_start_button">Remove Start Point</button>
       <br>
-      <p id="destinationList">Destinations:</p>
-    </div>
-    <div id="map" style='width: 400px; height: 300px;'></div>
-  <script>
-      mapboxgl.accessToken = 'pk.eyJ1IjoiZ2F0b3JsZWFybnMiLCJhIjoiY2tyenRidDd3MGZ1czJvcndua2ZjbGtxYiJ9.UzQVf8_gvYw0WtE-l9Idsw';
-      var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11'
-      });
-  </script>
-</body>
+    <br>
+      <select id="destinations">
+          <option value="Leeston">Leeston</option>
+          <option value="Southbridge">Southbridge</option>
+          <option value="Irwell">Irwell</option>
+          <option value="Rolleston">Rolleston</option>
+          <option value="Dunsandel">Dunsandel</option>
+        </select>
+          <button  id="add_destination_button">Add Destination</button>
+          <button  id="remove_destination_button">Remove Destination</button>
+      <br>
+      <br>
+        <h1>Fuel Calculator:</h1>
+          <label for="distance_input">Enter the distance of your trip here (Km):</label><input type="number" name="distance_input" id="distance_input"><br>
+          <label for="fuel_efficiency_input">Enter the fuel efficiency of your vehicle (L/100Km):</label><input type="number" name="fuel_efficiency_input" id="fuel_efficiency_input"><br>
+          <label for="fuel_cost_input">Enter the current cost of fuel per litre:</label><input type="number" name="fuel_cost_input" id="fuel_cost_input"><br>
+          <button type="submit" id="fuel_calculate_button">Calculate!</button>
+          <p id="fuel_cost_output"></p>
+        <h1>Start Point:</h1>
+          <ul id="start_location_list"></ul>
+        <h1>Destinations:</h1>
+          <ul id="destination_list"></ul>
+      </body>
