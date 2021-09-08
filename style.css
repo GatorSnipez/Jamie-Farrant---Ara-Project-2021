@@ -60,3 +60,50 @@
 body{
   margin: 0;
 }
+
+/* fieldset borders */
+.start_location_list{
+  width: fit-content;
+  border: solid darkorange 5px;
+}
+.destination_location_list{
+  width: fit-content;
+  border: solid darkorange 5px;
+}
+.fuel_calculator_fs{
+  width: fit-content;
+  border: solid darkorange 5px;
+  position: absolute;
+  left: 55rem;
+  top: 8rem;
+  max-width: 25rem;
+}
+.location_lists{
+  min-width: 22.5rem;
+  max-width: fit-content;
+  border: solid darkorange 5px;
+}
+
+/*font configuration */
+h1{
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+p{
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+label{
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ul{
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* button styles */
+button{
+  background-color: darkorange;
+  font-weight: bold;
+}
