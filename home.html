@@ -9,33 +9,16 @@
 
 <body style="background-color: #111;">
   <div class="topnav">
-    <a class="navbar-logo" href="#">Trip Planner - JF</a><button onClick="window.location.href=window.location.href" id="refreshButton">Refresh Page</button><button type="button" onclick="window.open('', '_self', ''); window.close();" id="closewindowbutton">Close Window</button>
+    <a class="navbar-logo" href="#">Trip Planner - JF</a><button onClick="window.location.href=window.location.href" id="refreshButton">Refresh Page</button><button type="button" onclick="window.open('', '_self', ''); window.close();" id="closewindowbutton">Exit</button>
   </div>
-      <h1 id="headerText">Starting location: This is where your trip will begin and end!
-        <br> Choose one below:
+      <h1 id="headerText">Select locations in the order you would like to visit them below:
+        <br> Start here:
       </h1>     
     </div>
-    <fieldset class="start_location_list"> 
-      <select id="start_position">
-          <option value="Leeston">Leeston</option>
-          <option value="Southbridge">Southbridge</option>
-          <option value="Irwell">Irwell</option>
-          <option value="Rolleston">Rolleston</option>
-          <option value="Dunsandel">Dunsandel</option>
-      </select>
-        <button id="add_start_button">Add Start Point</button>
-        <button id="remove_start_button">Remove Start Point</button>
-    </fieldset>
     <br>
     <br>
     <fieldset class="destination_location_list">
-      <select id="destinations">
-        <option value="Leeston">Leeston</option>
-        <option value="Southbridge">Southbridge</option>
-        <option value="Irwell">Irwell</option>
-        <option value="Rolleston">Rolleston</option>
-        <option value="Dunsandel">Dunsandel</option>
-      </select>
+      <select id="place_list"></select>
         <button  id="add_destination_button">Add Destination</button>
         <button  id="remove_destination_button">Remove Destination</button>
     </fieldset>
@@ -52,9 +35,11 @@
       <br>
       <br>
       <fieldset class="location_lists">
-        <h1>Start Point:</h1>
-          <ul id="start_location_list"></ul>
-        <h1>Destinations:</h1>
+        <h1>Itinerary:</h1>
           <ul id="destination_list"></ul>
       </fieldset>
+    <button id="save_trip_button">Save Trip</button>
+    <button id="get_trip_button">Get Trip</button>
+    <button id="destination_calculation_button">Calculate Distance</button>
+    <p id="found_trip"></p>
 </body>
