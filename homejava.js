@@ -113,7 +113,7 @@ const distances= [
 ]
 
 function destDistCalc() {
-    var destList = document.getElementById("destination_list");
+    let destList = document.getElementById("destination_list");
     i = 0
     traveled = 0
     while((destList.length-1) > i) {
