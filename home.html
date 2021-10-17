@@ -2,44 +2,41 @@
   <link rel="stylesheet" href="style.css">
   <script src="homejava.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.css" rel="stylesheet">
-  <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.0/mapbox-gl.js"></script>
   <title>Trip Planner Assessment</title>
 </head>
 
 <body style="background-color: #111;">
   <div class="topnav">
-    <a class="navbar-logo" href="#">Trip Planner - JF</a><button onClick="window.location.href=window.location.href" id="refreshButton">Refresh Page</button><button type="button" onclick="window.open('', '_self', ''); window.close();" id="closewindowbutton">Exit</button>
+    <a class="navbar-logo" href="#">Trip Planner - JF</a><button id="refresh_button">Refresh Page</button><button type="button"  id="close_window_button">Exit</button>
   </div>
-      <h1 id="headerText">Select locations in the order you would like to visit them below:
-        <br> Start here:
-      </h1>     
-    </div>
-    <br>
-    <br>
+  <h1 id="headerText">Select locations in the order you would like to visit them below:
+    <br> Start here:
+  </h1>     
+  <br>
+  <br>
     <fieldset class="destination_location_list">
       <select id="place_list"></select>
-        <button  id="add_destination_button">Add Destination</button>
-        <button  id="remove_destination_button">Remove Destination</button>
+      <button  id="add_destination_button">Add Destination</button>
+      <button  id="remove_destination_button">Remove Destination</button>
     </fieldset>
-      <br>
-      <br>
-      <fieldset class="fuel_calculator_fs">
-        <h1>Fuel Calculator:</h1>
-          <label for="distance_input">Enter the distance of your trip here (Km):</label><input type="number" name="distance_input" id="distance_input"><br><br>
-          <label for="fuel_efficiency_input">Enter the fuel efficiency of your vehicle (L/100Km):</label><input type="number" name="fuel_efficiency_input" id="fuel_efficiency_input"><br><br>
-          <label for="fuel_cost_input">Enter the current cost of fuel per litre:</label><input type="number" name="fuel_cost_input" id="fuel_cost_input"><br><br>
-          <button type="submit" id="fuel_calculate_button">Calculate!</button>
-          <p id="fuel_cost_output"></p>
-      </fieldset>
-      <br>
-      <br>
-      <fieldset class="location_lists">
+  <br>
+  <br>
+    <fieldset class="fuel_calculator_fs">
+      <h1>Fuel Calculator:</h1>
+      <label for="distance_input">Distance of your trip (Km):</label><p id="distance_input"></p><br><br>
+      <label for="fuel_efficiency_input">Enter the fuel efficiency of your vehicle (L/100Km):</label><input type="number" name="fuel_efficiency_input" id="fuel_efficiency_input"><br><br>
+      <label for="fuel_cost_input">Enter the current cost of fuel per litre:</label><input type="number" name="fuel_cost_input" id="fuel_cost_input"><br><br>
+      <button type="submit" id="fuel_calculate_button">Calculate!</button>
+      <p id="fuel_cost_output"></p>
+    </fieldset>
+  <br>
+  <br>
+    <fieldset class="location_lists">
         <h1>Itinerary:</h1>
-          <ul id="destination_list"></ul>
-      </fieldset>
+        <ul id="destination_list"></ul>
+    </fieldset>
     <button id="save_trip_button">Save Trip</button>
     <button id="get_trip_button">Get Trip</button>
     <button id="destination_calculation_button">Calculate Distance</button>
-    <p id="found_trip"></p>
+    <p id="output"></p>
 </body>

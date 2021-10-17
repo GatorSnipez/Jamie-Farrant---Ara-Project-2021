@@ -17,9 +17,21 @@ function setUpListeners(){
 document.getElementById("add_destination_button").addEventListener('click', function() {addDestination_onClick();});
 document.getElementById("remove_destination_button").addEventListener('click', function() {removeDestination_onClick();});
 document.getElementById("fuel_calculate_button").addEventListener('click', function(){calculateFuel_onClick();});
-document.getElementById("save_trip_button").addEventListener('click', function(){saveTrip();});
+document.getElementById("save_trip_button").addEventListener('click', function(){store();});
 document.getElementById("get_trip_button").addEventListener('click', function(){getTrip();});
 document.getElementById("destination_calculation_button").addEventListener('click', function(){destDistCalc();});
+document.getElementById("close_window_button").addEventListener('click', function (){closeWindow();});
+document.getElementById("refresh_button").addEventListener('click', function(){refreshWindow();});
+}
+
+//Function that closes the window/exits the program
+function closeWindow(){
+    window.open('', '_self', ''); window.close();
+}
+
+//Function that refreshes/resets the page on click
+function refreshWindow(){
+    window.location.href=window.location.href
 }
 
 //Allows the array to become the select options found in the dropdown menu.
@@ -35,6 +47,9 @@ function ready() {
    }
  }
 
+//the new Array formed from the destination list
+const destinationArray = []
+
 //Function that adds a user chosen destination from the select menu to the list.
 function addDestination_onClick() {
     var destinationList = document.getElementById("destination_list");
@@ -43,8 +58,10 @@ function addDestination_onClick() {
     li.setAttribute('id', destination.value);
     li.appendChild(document.createTextNode(destination.value));
     destinationList.appendChild(li);
-}
 
+    destinationArray.splice(destinationArray.length, 0, destination.value)
+   console.log(destinationArray)
+}
 // Function that removes user-defined destination of choice.
 function removeDestination_onClick() {
 
@@ -53,36 +70,37 @@ function removeDestination_onClick() {
     var destination = document.getElementById("place_list");
     var selectedDestination = document.getElementById(destination.value);
     destinationList.removeChild(selectedDestination);
+
+    destinationArray.splice(destinationArray.length, destination.value)
+    console.log(destinationArray)
 }
 
 //Function to calculate fuel cost of trip, currently requires all user input.
 function calculateFuel_onClick(){
-    let D = document.getElementById("distance_input").value;
+    let D = traveled;
     let FE = document.getElementById("fuel_efficiency_input").value;
     let FC = document.getElementById("fuel_cost_input").value;
     
     document.getElementById("fuel_cost_output").innerHTML = (D/100) * (FE) * (FC);
 }
 
-function saveTrip() {
-    // Put the object into local storage
+// Put the destination array into local storage
+function store() {
     var destinationList = document.getElementById("destination_list");
-    localStorage.setItem('Array', JSON.stringify(destinationList.innerText));
-    }
+    localStorage.setItem('Array', JSON.stringify(destinationArray));
+}
     
-    function getTrip(){
-    // Retrieve the object from local storage
+// Retrieve the destination array from local storage
+function getTrip(){
     var retrievedObject = localStorage.getItem('Array');
-    
     console.log('retrievedObject: ', JSON.parse(retrievedObject));
-    
     document.getElementById('destination_list').innerHTML = 'Your destinations are:  ' + retrievedObject 
-    }
+}
 
 //Array which contains all town names required
 const places = ["Alexandra", "Blenheim", "Christchurch","Collingwood", "Cromwell", "Dunedin", "Franz-Josef","Geraldine","Gore", "Greymouth", "Haast", "Invercargill", "Kaikoura","Lake Tekapo", "Milford Sound", "Mount Cook", "Murchison", "Nelson", "Oamaru", "Picton", "Queenstown", "Te Anau", "Timaru","Twizel", "Wanaka", "Westport"];
 
-//Array which has all town distances
+//Array which has all town distances, courtesy of Alistair
 const distances= [
         [0,786,755,964,31,190,373,315,136,661,231,202,657,227,370,242,734,865,223,791,93,249,307,169,86,761],
         [786,0,308,251,733,670,486,446,821,324,643,887,129,534,1081,639,153,116,555,28,794,960,471,592,745,254],
@@ -112,20 +130,26 @@ const distances= [
         [761,254,333,320,639,695,277,432,804,101,437,869,340,559,951,664,101,226,580,288,664,830,497,617,558,0],
 ]
 
+//Calculates the distance between destinations found in the destination array
 function destDistCalc() {
-    let destList = document.getElementById("destination_list");
-    i = 0
-    traveled = 0
-    while((destList.length-1) > i) {
-        destA = places.indexOf(destList[i])
-        destB = places.indexOf(destList[(i+1)])
-        distance = distances[Number(destA)]
-        traveled += distance[Number(destB)]
-        i+=1
-        console.log(traveled, destA, destB, distance)
-    }
 
-}
+    let destList = destinationArray
+    let townList = places
+    let townDistance = distances
+        i = 0
+        traveled = 0
+        while((destList.length-1) > i) {
+            destination1 = townList.indexOf(destList[i])
+            destination2 = townList.indexOf(destList[(i+1)])
+            distance = townDistance[Number(destination1)]
+            traveled += distance[Number(destination2)]
+            i+=1
+            console.log(traveled, destination1, destination2, distance)
+            document.getElementById('output').innerHTML = 'The length of your trip is: ' + traveled + ' km'
+            document.getElementById("distance_input").innerHTML = traveled;
+        }
+    
+    }
 
 
 
