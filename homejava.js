@@ -60,9 +60,9 @@ function addDestination_onClick() {
     destinationList.appendChild(li);
 
     destinationArray.splice(destinationArray.length, 0, destination.value)
-   console.log(destinationArray)
+    console.log(destinationArray)
 }
-// Function that removes user-defined destination of choice.
+// Function that removes the user defined item from the destination list
 function removeDestination_onClick() {
 
     // Declares variable to retrieve set element
@@ -71,8 +71,14 @@ function removeDestination_onClick() {
     var selectedDestination = document.getElementById(destination.value);
     destinationList.removeChild(selectedDestination);
 
-    destinationArray.splice(destinationArray.length, destination.value)
-    console.log(destinationArray)
+     //Removes the item from the destination array to produce correct result
+    console.log(destinationArray);
+
+    const index = destinationArray.indexOf(destination.value);
+    if (index > -1) {
+    destinationArray.splice(index, 1);
+    }
+    console.log(destinationArray); 
 }
 
 //Function to calculate fuel cost of trip, currently requires all user input.
@@ -130,12 +136,21 @@ const distances= [
         [761,254,333,320,639,695,277,432,804,101,437,869,340,559,951,664,101,226,580,288,664,830,497,617,558,0],
 ]
 
-//Calculates the distance between destinations found in the destination array
+/* Calculates the distance between destinations found in the destination array, while also ensuring that the trip is roundabout automatically, 
+regardless of whether the user specified it in their destination list
+Error checking is also present within this function as well */
 function destDistCalc() {
 
     let destList = destinationArray
     let townList = places
     let townDistance = distances
+
+    destinationArray.push(destinationArray[0])
+    console.log(destinationArray)
+
+    if(destList < 2){
+        alert('ERROR: Please input at least two locations for your trip')
+    }
         i = 0
         traveled = 0
         while((destList.length-1) > i) {
@@ -148,9 +163,7 @@ function destDistCalc() {
             document.getElementById('output').innerHTML = 'The length of your trip is: ' + traveled + ' km'
             document.getElementById("distance_input").innerHTML = traveled;
         }
-    
+    if(traveled == 0){
+        alert('please enter more than one location')
     }
-
-
-
-
+    }
