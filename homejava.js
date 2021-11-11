@@ -1,7 +1,8 @@
 /* Name: Jamie Farrant
    File Type: Javascript
-   Last Update: 8/10/21 @ 22:01
+   Last Update: 11/11/21 @ 22:01
    Is this amazingly efficient? No. Does it work? Almost.
+   Github Link: https://github.com/GatorSnipez/Jamie-Farrant---Ara-Project-2021
 */
 
 //Function that closes the window/exits the program
@@ -11,7 +12,7 @@ function closeWindow(){
 
 //Function that refreshes/resets the page on click
 function refreshWindow(){
-    window.location.href=window.location.href
+    window.location.href=window.location.href;
 }
 
 //Function that adds a user chosen destination from the select menu to the list.
@@ -23,8 +24,8 @@ function addDestination_onClick() {
     li.appendChild(document.createTextNode(destination.value));
     destinationList.appendChild(li);
 
-    destinationArray.splice(destinationArray.length, 0, destination.value)
-    console.log(destinationArray)
+    destinationArray.splice(destinationArray.length, 0, destination.value);
+    console.log(destinationArray);
 }
 
 // Function that removes the user defined item from the destination list
@@ -66,7 +67,7 @@ function store() {
 function getTrip(){
     var retrievedObject = localStorage.getItem('Array');
     console.log('retrievedObject: ', JSON.parse(retrievedObject));
-    document.getElementById('destination_list').innerHTML = 'Your destinations are:  ' + retrievedObject 
+    document.getElementById('destination_list').innerHTML = 'Your destinations are:  ' + retrievedObject; 
 }
 
 /* Calculates the distance between destinations found in the destination array, while also ensuring that the trip is roundabout automatically, 
@@ -74,26 +75,26 @@ regardless of whether the user specified it in their destination list
 Error checking is also present within this function as well */
 function destDistCalc() {
 
-    const destList = destinationArray
-    const townList = places
-    const townDistance = distances
+    const destList = destinationArray;
+    const townList = places;
+    const townDistance = distances;
 
-        i = 0
-        traveled = 0
+        i = 0;
+        traveled = 0;
         while((destList.length-1) > i) {
-            destination1 = townList.indexOf(destList[i])
-            destination2 = townList.indexOf(destList[(i+1)])
-            distance = townDistance[Number(destination1)]
-            traveled += distance[Number(destination2)]
-            i+=1
-            console.log(traveled, destination1, destination2, distance)
-            document.getElementById('output').innerHTML = 'The length of your trip is: ' + traveled + ' km'
+            destination1 = townList.indexOf(destList[i]);
+            destination2 = townList.indexOf(destList[(i+1)]);
+            distance = townDistance[Number(destination1)];
+            traveled += distance[Number(destination2)];
+            i+=1;
+            console.log(traveled, destination1, destination2, distance);
+            document.getElementById('output').innerHTML = 'The length of your trip is: ' + traveled + ' km';
             document.getElementById("distance_input").innerHTML = traveled;
         }
 }
 
 //Adds the first location of the itinerary to the end of the array to calculate a 'full round trip'
 function returnToStart(){
-    destinationArray.push(destinationArray[0])
-    console.log(destinationArray)
+    destinationArray.push(destinationArray[0]);
+    console.log(destinationArray);
 }

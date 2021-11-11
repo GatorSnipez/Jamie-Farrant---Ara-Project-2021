@@ -14,10 +14,10 @@ function ready() {
  document.addEventListener('DOMContentLoaded', function() {
  
     //On page load, sets up listeners
-        "use strict"
+        "use strict";
         setUpListeners();
         ready();
-    })
+    });
 
 //Function that sets listeners up to execute functions when requirements are met. Used to keep Js out of HTML document.
     function setUpListeners(){
