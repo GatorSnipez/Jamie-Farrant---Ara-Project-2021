@@ -65,7 +65,7 @@ describe("Find remotest correct", function() {
 		expect(remotest[1]).toEqual(1038, 1003)
 	})
 })
-
+//Test that finds the distance of a trip given different scenarios
 describe("Find the correct distance of the trip, assuming there is no auto-return", function() {
 	// Emulate the data loading
 	beforeEach(function() {
@@ -92,6 +92,7 @@ describe("Find the correct distance of the trip, assuming there is no auto-retur
 	})
 })
 
+//Test to determine what occurs on the entry of false data
 describe("Data Loaded Correctly", function() {
 	// Emulate the data loading
 	beforeEach(function() {
